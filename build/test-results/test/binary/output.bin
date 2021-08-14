@@ -1,0 +1,3 @@
+Driver loaded
+^Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
+CConnection is successful!!!com.mysql.jdbc.JDBC4Connection@5b132b0
