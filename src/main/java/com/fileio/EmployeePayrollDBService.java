@@ -60,7 +60,7 @@ public class EmployeePayrollDBService  {
     private List<EmployeePayrollData> getEmployeePayrollData(ResultSet resultSet) {
         List<EmployeePayrollData> employeePayrollDataList = new ArrayList<>();
         if (this.employeePayrollDataStatement == null)
-            this.prepareStatementforEmployeeData();
+            this.preparedStatementforEmployeeData();
         try {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
@@ -74,7 +74,7 @@ public class EmployeePayrollDBService  {
         }
         return employeePayrollDataList;
     }
-    private void prepareStatementforEmployeeData() {
+    private void preparedStatementforEmployeeData() {
         try {
             Connection connection = this.getConnection();
             String sql = "SELECT * FROM employee_payroll WHERE name = ?";
@@ -91,7 +91,7 @@ public class EmployeePayrollDBService  {
     public List<EmployeePayrollData> getEmployeePayrollData(String name) {
         List<EmployeePayrollData> employeePayrollDataList = null;
         if (this.employeePayrollDataStatement==null)
-            this.prepareStatementforEmployeeData();
+            this.preparedStatementforEmployeeData();
         try {
             employeePayrollDataStatement.setString(1,name);
             ResultSet resultSet = employeePayrollDataStatement.executeQuery();
