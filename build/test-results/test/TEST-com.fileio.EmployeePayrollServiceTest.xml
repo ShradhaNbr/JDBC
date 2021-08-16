@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.fileio.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-14T09:50:27" hostname="SHRADHA" time="0.293">
+<testsuite name="com.fileio.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-16T11:17:38" hostname="SHRADHA" time="0.874">
   <properties/>
-  <testcase name="givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount()" classname="com.fileio.EmployeePayrollServiceTest" time="0.293"/>
+  <testcase name="givenNewSalarywhenUpdatedShouldSyncwithDB()" classname="com.fileio.EmployeePayrollServiceTest" time="0.874"/>
   <system-out><![CDATA[Driver loaded
 Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
-Connection is successful!!!com.mysql.jdbc.JDBC4Connection@5b132b0
+Connection is successful!!!com.mysql.jdbc.JDBC4Connection@6b3f0f5b
+Driver loaded
+Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
+Connection is successful!!!com.mysql.jdbc.JDBC4Connection@7a2d75d5
+Driver loaded
+Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
+Connection is successful!!!com.mysql.jdbc.JDBC4Connection@58f324ac
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
