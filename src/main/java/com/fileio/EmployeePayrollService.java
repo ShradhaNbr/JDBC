@@ -1,5 +1,6 @@
 package com.fileio;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -23,6 +24,12 @@ public class EmployeePayrollService {
     public boolean checkEmployeePayrollInSyncwithDb(String name) {
         List<EmployeePayrollData> employeePayrollDataList =  EmployeePayrollDBService.getInstance().getEmployeePayrollData(name);
         return employeePayrollDataList.get(0).equals(getEmployeePayrollData(name));
+    }
+
+    public List<EmployeePayrollData> readEmployeePayrollData(IOService ioService)  {
+        if(ioService.equals(IOService.DB_IO))
+            this.employeePayrollDataList = employeePayrollDBService.readData();
+        return this.employeePayrollDataList;
     }
 
     public enum IOService{
@@ -98,5 +105,12 @@ public class EmployeePayrollService {
         if(ioService.equals(IOService.CONSOLE_IO)){
             new EmployeePayrollFileIOService().readDataFromFile();
         }
+    }
+
+    //Method to retrieve data for particular date range
+    public List<EmployeePayrollData> readEmployeePayrollForDateRange(IOService ioService, LocalDate startDate, LocalDate endDate)  {
+        if( ioService.equals(IOService.DB_IO))
+            return employeePayrollDBService.getEmployeeForDateRange(startDate, endDate);
+        return null;
     }
 }

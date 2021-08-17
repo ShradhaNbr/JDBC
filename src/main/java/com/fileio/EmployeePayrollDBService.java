@@ -119,4 +119,28 @@ public class EmployeePayrollDBService  {
         }
         return employeePayrollDataList;
     }
+    private List<EmployeePayrollData> getEmployeePayrollDataUsingDB(String sql)  {
+        List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
+        try (Connection connection = this.getConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(sql);
+            while (result.next()) {
+                int id = result.getInt("id");
+                String name = result.getString("name");
+                double salary = result.getDouble("salary");
+                LocalDate startDate = result.getDate("start").toLocalDate();
+                employeePayrollList.add(new EmployeePayrollData(id, name, salary, startDate));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employeePayrollList;
+    }
+
+    //Method to read from database for a date range
+    public List<EmployeePayrollData> getEmployeeForDateRange(LocalDate startDate, LocalDate endDate)  {
+        String sql = String.format("SELECT * FROM employee_payroll WHERE START BETWEEN '%s' AND '%s';",
+                Date.valueOf(startDate), Date.valueOf(endDate));
+        return getEmployeePayrollDataUsingDB(sql);
+    }
 }
