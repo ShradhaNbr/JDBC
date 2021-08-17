@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.fileio.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-17T09:37:29" hostname="SHRADHA" time="0.519">
+<testsuite name="com.fileio.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-17T10:08:34" hostname="SHRADHA" time="0.384">
   <properties/>
-  <testcase name="givenDateRange_WhenRetrieved_ShouldMatchTheEmployeeCount()" classname="com.fileio.EmployeePayrollServiceTest" time="0.519"/>
+  <testcase name="givenPayrollData_WhenRetrieved_ShouldReturnAverageSalary()" classname="com.fileio.EmployeePayrollServiceTest" time="0.384"/>
   <system-out><![CDATA[Driver loaded
 Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
-Connection is successful!!!com.mysql.jdbc.JDBC4Connection@6f9f1f88
+Connection is successful!!!com.mysql.jdbc.JDBC4Connection@27da719c
 Driver loaded
 Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
-Connection is successful!!!com.mysql.jdbc.JDBC4Connection@2e68eff5
+Connection is successful!!!com.mysql.jdbc.JDBC4Connection@5f61ce72
 Driver loaded
 Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
-Connection is successful!!!com.mysql.jdbc.JDBC4Connection@58f324ac
+Connection is successful!!!com.mysql.jdbc.JDBC4Connection@1d261db
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
