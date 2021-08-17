@@ -8,8 +8,7 @@ import java.util.List;
 public class EmployeePayrollDBService  {
 
     private PreparedStatement employeePayrollDataStatement;
-    //to make this singleton
-    private  static  EmployeePayrollDBService employeePayrollDBService;
+    private  static  EmployeePayrollDBService employeePayrollDBService;   //to make this singleton
     private EmployeePayrollDBService() {
     }
     public static EmployeePayrollDBService getInstance() {
@@ -51,7 +50,7 @@ public class EmployeePayrollDBService  {
         String sql = String.format("UPDATE employee_payroll SET salary = %.2f where name = '%s';", salary, name);
         try  (Connection connection = this.getConnection()) {
             Statement statement = connection.createStatement();
-            return statement.executeUpdate(sql);
+            return statement.executeUpdate(sql); //return how may rows got updated
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -88,6 +87,23 @@ public class EmployeePayrollDBService  {
     public int updateEmployeeData(String name, double salary)  {
         return this.updateEmployeeDataUsingStatement(name, salary);
     }
+    public int updateEmployeeDataPreparedStatement(String name, double salary)  {
+        return this.updateEmployeeDataUsingPreparedStatement(name, salary);
+    }
+
+    private int updateEmployeeDataUsingPreparedStatement(String name, double salary) {
+        String sql = "UPDATE employee_payroll SET salary = ? where name = ?";
+        try  (Connection connection = this.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setDouble(1,salary);
+            statement.setString(2,name);
+            return statement.executeUpdate(sql); //return how may rows got updated
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
     public List<EmployeePayrollData> getEmployeePayrollData(String name) {
         List<EmployeePayrollData> employeePayrollDataList = null;
         if (this.employeePayrollDataStatement==null)

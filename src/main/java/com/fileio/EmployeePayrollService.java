@@ -8,6 +8,7 @@ public class EmployeePayrollService {
 
     private final EmployeePayrollDBService employeePayrollDBService;
 
+    //Method to get list of employees from DB
     public List<EmployeePayrollData> readEmployeePayroll(IOService ioService ) {
         if (ioService.equals(IOService.DB_IO))
             this.employeePayrollDataList = employeePayrollDBService.readData();
@@ -54,6 +55,13 @@ public class EmployeePayrollService {
     }
     public void updateEmployeeSalary(String name, double salary) {
         int result = employeePayrollDBService.updateEmployeeData(name,salary);
+        if (result == 0) return;
+        EmployeePayrollData employeePayrollData = this.getEmployeePayrollData(name);
+        if (employeePayrollData != null)
+            employeePayrollData.salary = salary;
+    }
+    public void updateEmployeeDataUsingPreparedStatement(String name, double salary) {
+        int result = employeePayrollDBService.updateEmployeeDataPreparedStatement(name,salary);
         if (result == 0) return;
         EmployeePayrollData employeePayrollData = this.getEmployeePayrollData(name);
         if (employeePayrollData != null)
