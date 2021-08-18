@@ -1,9 +1,15 @@
 Driver loaded
 ^Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
-DConnection is successful!!!com.mysql.jdbc.JDBC4Connection@27da719c
+BConnection is successful!!!com.mysql.jdbc.JDBC4Connection@437cb1
 Driver loaded
 ^Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
-DConnection is successful!!!com.mysql.jdbc.JDBC4Connection@5f61ce72
+DConnection is successful!!!com.mysql.jdbc.JDBC4Connection@5c3fef20
 Driver loaded
 ^Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
-CConnection is successful!!!com.mysql.jdbc.JDBC4Connection@1d261db
+DConnection is successful!!!com.mysql.jdbc.JDBC4Connection@16609217
+Driver loaded
+^Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
+DConnection is successful!!!com.mysql.jdbc.JDBC4Connection@384a40b5
+Driver loaded
+^Connecting to database :jdbc:mysql://localhost:3306/payroll_service?characterEncoding=latin1
+DConnection is successful!!!com.mysql.jdbc.JDBC4Connection@5d042ae9

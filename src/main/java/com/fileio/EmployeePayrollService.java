@@ -33,6 +33,15 @@ public class EmployeePayrollService {
         return this.employeePayrollDataList;
     }
 
+    public void addEmployeeToPayroll(String name, String gender, double salary, LocalDate startDate) {
+        employeePayrollDataList.add(employeePayrollDBService.addEmployeeToPayroll(name,gender,salary,startDate));
+    }
+
+    public boolean checkEmployeePayrollInSyncWithDB(String name) {
+        List<EmployeePayrollData> employeePayrollDataList = employeePayrollDBService.getEmployeePayrollData(name);
+        return employeePayrollDataList.get(0).equals(getEmployeePayrollData(name));
+    }
+
     public enum IOService{
         CONSOLE_IO,FILE_IO,DB_IO,REST_IO}
     private List<EmployeePayrollData> employeePayrollDataList;
